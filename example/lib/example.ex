@@ -7,13 +7,19 @@ defmodule Example do
   end
 
   def main do
-    name = "Caleb"
-    status = Enum.random([:gold, :silver, :bronze, :"not a member"])
-
-    case status do
-      :gold -> IO.puts("Welcome to the fancy lounge, #{name}")
-      :"not a member" -> IO.puts("Get Subscribed")
-      _ -> IO.puts("Get out bruh")
-    end
+    IO.puts("This\nis\na\nmessage\n")
+    IO.puts("After\n")
+    IO.puts(?a)
   end
 end
+
+# RESULT
+
+# This
+# is
+# a
+# message
+
+# After
+
+# 97
