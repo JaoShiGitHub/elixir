@@ -7,19 +7,12 @@ defmodule Example do
   end
 
   def main do
-    IO.puts("This\nis\na\nmessage\n")
-    IO.puts("After\n")
-    IO.puts(?a)
+  time = Time.new!(16, 30, 0, 0)
+  date = Date.new!(2025, 1, 1)
+  date_time = DateTime.new!(date, time , "Etc/UTC")
+  IO.inspect(date_time)
+  IO.puts(date_time.year)
   end
 end
 
-# RESULT
-
-# This
-# is
-# a
-# message
-
-# After
-
-# 97
+# Use ! to tell Elixir that all we passed are correct and they can be trusted so don't throw errors
