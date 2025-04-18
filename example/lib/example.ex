@@ -1,18 +1,13 @@
 defmodule Example do
-  @moduledoc """
-  Documentation for `Example`.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    #code
+    IO.puts(Example.hello())
+    Supervisor.start_link([], strategy: :one_for_one)
+  end
 
-  ## Examples
-
-      iex> Example.hello()
-      :world
-
-  """
   def hello do
-    :world
+    :word
   end
 end
