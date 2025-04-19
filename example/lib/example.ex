@@ -8,10 +8,10 @@ defmodule Example do
 
   def main do
     memberships = %{
-      gold: 3,
-      silver: 2,
-      bronze: 1,
-      none: 0
+      gold: :gold,
+      silver: :silver,
+      bronze: :bronze,
+      none: :none
     }
 
     prices = %{
@@ -29,7 +29,7 @@ defmodule Example do
     ]
 
     Enum.each(users, fn {name, membership} ->
-      IO.puts("#{name} has a #{memberships} membership paying #{prices[membership]}.")
+      IO.puts("#{name} has a #{membership} membership paying #{prices[membership]}.")
     end)
   end
 end
