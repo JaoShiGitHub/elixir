@@ -7,24 +7,29 @@ defmodule Example do
   end
 
   def main do
-    memberships = {:bronze, :silver }
-    memberships = Tuple.append(memberships, :gold)
-    IO.inspect(memberships)
+    memberships = %{
+      gold: 3,
+      silver: 2,
+      bronze: 1,
+      none: 0
+    }
 
-    prices = {5, 10, 15}
-    avg = Tuple.sum(prices) / tuple_size(prices)
-    IO.puts(avg)
+    prices = %{
+      gold: 25,
+      silver: 20,
+      bronze: 15,
+      none: 0
+    }
 
-    IO.puts("Average price from #{elem(memberships, 0)} #{elem(memberships, 1)} #{elem(memberships, 2)} is #{avg}")
 
     users = [
-      {"Caleb", :gold},
-      {"Kayla", :gold},
-      {"Carrie", :silver}
+      {"Caleb", memberships.gold},
+      {"Kayla", memberships.gold},
+      {"Carrie", memberships.silver}
     ]
 
-    Enum.each(users, fn {name, memberships} ->
-      IO.puts("#{name} has a #{memberships} membership.")
+    Enum.each(users, fn {name, membership} ->
+      IO.puts("#{name} has a #{memberships} membership paying #{prices[membership]}.")
     end)
   end
 end
