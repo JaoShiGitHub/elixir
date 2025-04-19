@@ -17,15 +17,14 @@ defmodule Example do
 
     IO.puts("Average price from #{elem(memberships, 0)} #{elem(memberships, 1)} #{elem(memberships, 2)} is #{avg}")
 
-    user1 = {"Caleb", :gold}
-    user2 = {"Kayla", :gold}
-    user3 = {"Carrie", :silver}
+    users = [
+      {"Caleb", :gold},
+      {"Kayla", :gold},
+      {"Carrie", :silver}
+    ]
 
-    {name, memberships} = user1
-    IO.puts("#{name} has a #{memberships} membership.")
-    {name, memberships} = user2
-    IO.puts("#{name} has a #{memberships} membership.")
-    {name, memberships} = user3
-    IO.puts("#{name} has a #{memberships} membership.")
+    Enum.each(users, fn {name, memberships} ->
+      IO.puts("#{name} has a #{memberships} membership.")
+    end)
   end
 end
