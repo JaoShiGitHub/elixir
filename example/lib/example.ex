@@ -7,12 +7,25 @@ defmodule Example do
   end
 
   def main do
-  time = Time.new!(16, 30, 0, 0)
-  date = Date.new!(2025, 1, 1)
-  date_time = DateTime.new!(date, time , "Etc/UTC")
-  IO.inspect(date_time)
-  IO.puts(date_time.year)
+    memberships = {:bronze, :silver }
+    memberships = Tuple.append(memberships, :gold)
+    IO.inspect(memberships)
+
+    prices = {5, 10, 15}
+    avg = Tuple.sum(prices) / tuple_size(prices)
+    IO.puts(avg)
+
+    IO.puts("Average price from #{elem(memberships, 0)} #{elem(memberships, 1)} #{elem(memberships, 2)} is #{avg}")
+
+    user1 = {"Caleb", :gold}
+    user2 = {"Kayla", :gold}
+    user3 = {"Carrie", :silver}
+
+    {name, memberships} = user1
+    IO.puts("#{name} has a #{memberships} membership.")
+    {name, memberships} = user2
+    IO.puts("#{name} has a #{memberships} membership.")
+    {name, memberships} = user3
+    IO.puts("#{name} has a #{memberships} membership.")
   end
 end
-
-# Use ! to tell Elixir that all we passed are correct and they can be trusted so don't throw errors
