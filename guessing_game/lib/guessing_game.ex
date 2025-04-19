@@ -7,8 +7,13 @@ defmodule GuessingGame do
   end
 
   def main do
-    correct = 8
+    correct = :rand.uniform(11) - 1
     guess = IO.gets("Guessing a number between 0 and 10: ") |> String.trim()
-    IO.puts("You guessed #{guess}, correct was #{correct}")
+
+    if String.to_integer(guess) == correct do
+      IO.puts("YOU WIN!")
+    else
+      IO.puts("YOU LOSE T-T")
+    end
   end
 end
