@@ -13,14 +13,17 @@ defmodule GuessingGame do
     IO.inspect((guess))
 
     case guess do
-      {result, ""} ->
+      {result, _} ->
         IO.puts("parse successful #{result}")
 
-        {result, other} ->
-          IO.puts("parse partially successful #{result} and #{other}")
+     if result === correct do
+       IO.puts("YOU WIN! :D")
+     else
+       IO.puts("YOU LOSE! T^T")
+     end
 
-          :error ->
-            IO.puts("Something went wrong")
+      :error ->
+         IO.puts("Something went wrong")
     end
   end
 end
